@@ -1,0 +1,14 @@
+{#Plantilla base#}
+{% extends 'base.html.twig' %}
+{#Contenido#}
+{% block body %}
+
+{{ form_start(form) }}
+
+<div class="form-group col-md-12">
+    {{ form_widget(form) }}
+ </div>   
+
+
+{{ form_end(form) }}
+{% endblock %}

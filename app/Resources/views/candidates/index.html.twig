@@ -1,0 +1,55 @@
+{#Plantilla base#}
+{% extends 'base.html.twig' %}
+{#Contenido#}
+{% block body %}
+
+ <div class="card mb-3">
+            <div class="card-header">
+              <!--<i class="fas fa-table"></i>-->
+              {{ form_start(form) }}
+
+    {{ form_widget(form) }}
+
+{{ form_end(form) }}
+</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Registrierungsdatum</th>
+                      <th>Tochtergesellschaft</th>
+                    </tr>
+                  </thead>
+
+                  <!--<tfoot>
+                    <tr>
+                      <th>Name</th>
+                      <th>Registrierungsdatum</th>
+                      <th>Tochtergesellschaft</th>
+                      
+                    </tr>
+                  </tfoot>-->
+
+                  <tbody>
+                  {% if candidates %}
+                    {% for candidate in candidates %}
+	                  <tr>
+	                      <td>{{candidate.name}}</td>
+	                      <td>{{candidate.Registrationdate|date }}</td>
+	                      <td>{{candidate.subsidiary}}</td>	                     
+	                    </tr>
+	                    {%endfor%}
+  
+				  {% else %}
+					   No Result.
+				  {% endif %}                   
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+{% endblock %}
